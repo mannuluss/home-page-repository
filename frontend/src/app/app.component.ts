@@ -34,7 +34,15 @@ export class AppComponent implements OnInit {
       domainURI: "https://webmin.feliperojas.me",
       enable: true,
       pathImg: "assets/vmAzure.png"
-    }
+    },
+    {
+      id: 0,
+      title: "Docker Library",
+      description: "pagina de un proyecto de libreria y pagina de compras",
+      domainURI: "https://catalog.feliperojas.me",
+      enable: true,
+      pathImg: "assets/Docker.jpg"
+    },
   ]
 
   pagesEnable = () => {

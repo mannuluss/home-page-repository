@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { ISocialNetWorks } from 'src/assets/ISocialNetworks';
+import { environment } from 'src/environments/environment';
 import { IPages } from './interfaces/IPages';
 
 
@@ -26,30 +28,17 @@ export class AppComponent implements OnInit {
     }
   ];
 
-  pages: Array<IPages> = [
-    {
-      id: 0,
-      title: "Webmin Dashboard",
-      description: "pagina para administrar la maquina virtual de azure",
-      domainURI: "https://webmin.feliperojas.me",
-      enable: true,
-      pathImg: "assets/vmAzure.png"
-    },
-    {
-      id: 0,
-      title: "Docker Library",
-      description: "pagina de un proyecto de libreria y pagina de compras",
-      domainURI: "https://catalog.feliperojas.me",
-      enable: true,
-      pathImg: "assets/Docker.jpg"
-    },
-  ]
+  pages: Array<IPages> = []
 
   pagesEnable = () => {
     return this.pages.filter((value) => value.enable);
   }
 
-  constructor() {
+  constructor(private http: HttpClient) {
+    this.http.get<IPages[]>(environment.Url + "/api/home/pages").subscribe(data => {
+      console.log(data)
+      this.pages = data;
+    })
   }
 
   ngOnInit(): void {

@@ -14,5 +14,9 @@ then
     npm install
     echo "Compilando BACKEND"
     npm run build
-    npm run start
+    echo "Copiando archivo certificado de base de datos y .env"
+    cp -r .env dist/
+    cp -r ~/DB_CA.crt.pem dist/
+    echo "iniciando servicio en el daemon (PM2)"
+    pm2 start dist/main.js -n backendHomePage
 fi

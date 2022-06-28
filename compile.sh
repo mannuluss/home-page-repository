@@ -1,5 +1,5 @@
 #!/bin/bash
-if [[ $1 = "front" || $1 = "all"]]
+if [ $1 = "front" || $1 = "all"]
 then
     cd ./frontend
     npm install
@@ -8,7 +8,7 @@ then
     echo "copiando los archivos del front"
     sudo cp -r ./frontend/dist/* /var/www/html/HomePage
 fi
-if [[ &1 = "back" || $1 = "all"]]
+if [ &1 = "back" || $1 = "all"]
 then
     cd ../backend
     npm install

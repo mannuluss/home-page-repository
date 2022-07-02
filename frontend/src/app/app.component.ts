@@ -34,9 +34,14 @@ export class AppComponent implements OnInit {
     return this.pages.filter((value) => value.enable);
   }
 
+  resource = environment.resource;
+
   constructor(private http: HttpClient) {
-    this.http.get<IPages[]>(environment.Url + "/api/home/pages").subscribe(data => {
+    this.http.get<IPages[]>(environment.UrlGetHomePage).subscribe(data => {
       console.log(data)
+      data.forEach((item)=>{
+        item.pathImg = this.resource + item.pathImg;
+      })
       this.pages = data;
     })
   }

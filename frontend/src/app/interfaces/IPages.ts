@@ -4,5 +4,7 @@ export interface IPages{
 	description: string,
 	pathImg: string,
 	domainURI: string,
-	enable: boolean
+	enable: boolean,
+	root: number,
+	children: IPages[]
 }

@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  UrlGetHomePage: "http://localhost:7071/api/HttpHomePages",
+  UrlGetHomePage: "//gethomepages.azurewebsites.net/api/HttpHomePages?code=jiJbbMKNcIfBHB_3yofBQGUh6oEQkfNLN9HwmC317mGpAzFuWq0OeA==",
+  urlGetImage: "",
   resource: "assets"
 };
 

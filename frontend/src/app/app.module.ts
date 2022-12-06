@@ -8,18 +8,26 @@ import { HttpClientModule } from '@angular/common/http';
 
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
+import { MaterialModule } from './material/material.module';
+import { TreePagesComponent } from './components/tree-pages/tree-pages.component';
+import { HeaderComponent } from './components/header/header.component';
+import { ImageSrcPipe } from './pipe/ImageSrc.pipe';
+import { GestionarImagenesComponent } from './components/gestionar-imagenes/gestionar-imagenes.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    TreePagesComponent,
+    GestionarImagenesComponent,
+    ImageSrcPipe 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MatIconModule,
-    MatCardModule
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

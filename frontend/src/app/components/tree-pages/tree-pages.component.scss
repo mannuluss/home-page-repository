@@ -1,0 +1,60 @@
+.card-container {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  grid-gap: 16px;
+  width: 100%;
+  .card {
+    position: relative;
+    transition: all 0.5s;
+    cursor: pointer;
+    /*.card-content {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+    }*/
+  }
+  .card,
+  .mat-card {
+    height: 400px;
+    width: 250px;
+  }
+}
+
+.card-container .card:not(:last-child) {
+  margin-right: 0;
+}
+
+.card-container .card:hover {
+  transform: translateY(-30px) scale(1.1);
+  box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+  transition: all 0.5s;
+  margin: 16px;
+}
+
+.card-container .card:hover .material-icons path {
+  fill: rgb(255, 255, 255);
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 767px) {
+  .card {
+    height: 16px;
+    margin: 8px 0;
+  }
+
+  .card.highlight-card span {
+    margin-left: 72px;
+  }
+}
+
+.back-button{
+  transition: all 0.5s;
+}
+.back-button:hover{
+  transform: scale(1.1);
+  box-shadow: 0 4px 17px rgba(255, 202, 0, 0.50);
+  transition: all 0.5s;
+}

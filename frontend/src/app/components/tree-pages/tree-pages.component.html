@@ -1,0 +1,23 @@
+<button mat-raised-button color="primary" *ngIf="level" (click)="back()" class="back-button">
+  <mat-icon>arrow_back</mat-icon>
+</button>
+<mat-list class="card-container">
+  <mat-card
+    class="card"
+    mat-list-item
+    *ngFor="let page of pages"
+    (click)="redirect(page)"
+  >
+    <ng-container>
+      <img
+        mat-card-image
+        src="{{ page.pathImg | ImageSrc | async }}"
+        width="200px"
+      />
+      <mat-card-title>{{ page.title }}</mat-card-title>
+      <mat-card-content>
+        {{ page.description }}
+      </mat-card-content>
+    </ng-container>
+  </mat-card>
+</mat-list>

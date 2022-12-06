@@ -1,0 +1,7 @@
+<div class="container-img">
+  <mat-card *ngFor="let image of imagenes">
+    <img src="{{ image.blobFile }}" width="200px" />
+    <span>id: {{ image.id}}</span>
+    <span>file name: {{ image.filename }}</span>
+  </mat-card>
+</div>

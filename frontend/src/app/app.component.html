@@ -1,38 +1,13 @@
 <!-- Toolbar -->
-<div class="toolbar" role="banner">
-  <img width="40" src="assets/Docker.jpg">
-  <span>HOME PAGE</span>
-  <div class="spacer"></div>
-
-  <a *ngFor="let item of redes_sociales" href={{item.url}} title={{item.name}}>
-    <mat-icon role="option">{{item.svgicon}}</mat-icon>
-  </a>
-
-</div>
+<app-header></app-header>
 
 <div class="content" role="main">
-
   <h1>PAGINA DE REPOSITORIOS DE FELIPE</h1>
-
-  <div class="card-container">
-    <div class="card" *ngFor="let page of pagesEnable()">
-      <a href={{page.domainURI}}>
-        <mat-card>
-          <img mat-card-image src={{page.pathImg}}>
-          <mat-card-title>{{page.title}}</mat-card-title>
-          <mat-card-content>
-            {{page.description}}
-          </mat-card-content>
-        </mat-card>
-      </a>
-    </div>
-  </div>
-
+  <main>
+    <router-outlet></router-outlet>
+  </main>
   <!-- <object class="background" type="image/svg+xml">
 
   </object>
   <embed [src]="backgroundImageVar" type="image/svg+xml"> -->
-
 </div>
-
-<router-outlet></router-outlet>

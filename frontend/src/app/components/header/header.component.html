@@ -1,0 +1,40 @@
+<div class="toolbar" role="banner">
+  <div class="header-title">
+    <mat-icon *ngIf="!local.login" routerLink="/">account_tree </mat-icon>
+    <mat-icon *ngIf="local.login" [matMenuTriggerFor]="menu">
+      admin_panel_settings
+    </mat-icon>
+    <span> {{ local.login ? "ADMIN MENU" : "REPOSITORIOS" }} </span>
+  </div>
+  <!--ADMIN LIST-->
+  <mat-menu #menu="matMenu" class="menu-admin">
+    <button mat-menu-item routerLink="/">Home</button>
+    <button mat-menu-item routerLink="/admin/gestionar-imagenes">
+      Imagenes
+    </button>
+    <button
+      mat-menu-item
+      routerLink="/admin/gestionar-imagenes"
+      (click)="local.logout()"
+    >
+      Salir
+    </button>
+  </mat-menu>
+
+  <div class="spacer"></div>
+
+  <div class="social-container">
+    <div
+      class="red-social"
+      [matTooltip]="item.name"
+      matTooltipPosition="below"
+      *ngFor="let item of redes_sociales"
+      (click)="redirect(item)"
+    >
+      <mat-icon *ngIf="item.svgicon">
+        {{ item.svgicon }}
+      </mat-icon>
+      <img [src]="item.svgUrl" />
+    </div>
+  </div>
+</div>

@@ -13,6 +13,7 @@ import { TreePagesComponent } from './components/tree-pages/tree-pages.component
 import { HeaderComponent } from './components/header/header.component';
 import { ImageSrcPipe } from './pipe/ImageSrc.pipe';
 import { GestionarImagenesComponent } from './components/gestionar-imagenes/gestionar-imagenes.component';
+import { SafePipe } from './pipe/Safe.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { GestionarImagenesComponent } from './components/gestionar-imagenes/gest
     HeaderComponent,
     TreePagesComponent,
     GestionarImagenesComponent,
-    ImageSrcPipe 
+    ImageSrcPipe,
+    SafePipe
   ],
   imports: [
     BrowserModule,

@@ -29,28 +29,7 @@ export class TreePagesComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    this.toBase64();
-  }
-
-  blo: any;
-  async toBase64() {
-    let b = await (await fetch('assets/vmAzure.png')).blob();
-    //let f = new File([b], 'vmAzure.png', { type: b.type });
-    /*let base64 = Buffer.from(f).toString("base64");
-    this.blo = base64;*/
-    this.http.get(environment.urlGetImage + '/5').subscribe((data:any) => {
-      this.blo = data.blobFile
-    });
-    console.log(URL.createObjectURL(b));
-    /*const reader = new FileReader();
-    reader.onloadend = () => {
-      console.log(reader.result);
-      //this.blo = reader.result;
-      // Logs data:<type>;base64,wL2dvYWwgbW9yZ...
-    };
-    reader.readAsDataURL(f);*/
-  }
+  ngOnInit(): void {}
 
   redirect(page: IPages) {
     if (!page.children || page.children.length == 0) {

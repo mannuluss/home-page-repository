@@ -1,4 +1,10 @@
-<button mat-raised-button color="primary" *ngIf="level" (click)="back()" class="back-button">
+<button
+  mat-raised-button
+  color="primary"
+  *ngIf="level"
+  (click)="back()"
+  class="back-button"
+>
   <mat-icon>arrow_back</mat-icon>
 </button>
 <mat-list class="card-container">
@@ -9,11 +15,11 @@
     (click)="redirect(page)"
   >
     <ng-container>
-      <img
+      <iframe
         mat-card-image
-        src="{{ page.pathImg | ImageSrc | async }}"
+        [src]="page.pathImg | ImageSrc | async | safe"
         width="200px"
-      />
+      ></iframe>
       <mat-card-title>{{ page.title }}</mat-card-title>
       <mat-card-content>
         {{ page.description }}

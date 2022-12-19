@@ -6,11 +6,21 @@ import { TreePagesComponent } from './components/tree-pages/tree-pages.component
 const routes: Routes = [
   {
     path: '',
-    component: TreePagesComponent,
-  },
-  {
-    path: 'admin/gestionar-imagenes',
-    component: GestionarImagenesComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: '/home',
+        pathMatch: 'full',
+      },
+      {
+        path: 'home',
+        component: TreePagesComponent,
+      },
+      {
+        path: 'admin/gestionar-imagenes',
+        component: GestionarImagenesComponent,
+      },
+    ],
   },
 ];
 

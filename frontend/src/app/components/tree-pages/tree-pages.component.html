@@ -8,6 +8,7 @@
   <mat-icon>arrow_back</mat-icon>
 </button>
 <mat-list class="card-container">
+  <app-loading-grid *ngIf="pages.length == 0"></app-loading-grid>
   <mat-card
     class="card"
     mat-list-item
@@ -15,11 +16,11 @@
     (click)="redirect(page)"
   >
     <ng-container>
-      <iframe
+      <img
         mat-card-image
-        [src]="page.pathImg | ImageSrc | async | safe"
+        [src]="page.pathImg | ImageSrc | async"
         width="200px"
-      ></iframe>
+      />
       <mat-card-title>{{ page.title }}</mat-card-title>
       <mat-card-content>
         {{ page.description }}

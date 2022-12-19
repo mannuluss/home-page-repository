@@ -15,11 +15,11 @@ export class ImageSrcPipe implements PipeTransform {
         .get<any>(`${environment.urlGetImage}/${value}`)
         .pipe(
           catchError((err) => {
-            return [{ blobFile: '/assets/404/404.html' }];
+            return [{ blobFile: '/assets/404/error-404.jpg' }];
           })
         )
         .subscribe((data) => {
-          console.log(data.blobFile);
+          console.log(value,data?.blobFile);
           resolve(data.blobFile);
         });
     });

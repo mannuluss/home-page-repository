@@ -14,6 +14,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { ImageSrcPipe } from './pipe/ImageSrc.pipe';
 import { GestionarImagenesComponent } from './components/gestionar-imagenes/gestionar-imagenes.component';
 import { SafePipe } from './pipe/Safe.pipe';
+import { LoadingGridComponent } from './components/loading-grid/loading-grid.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { SafePipe } from './pipe/Safe.pipe';
     HeaderComponent,
     TreePagesComponent,
     GestionarImagenesComponent,
+    LoadingGridComponent,
     ImageSrcPipe,
     SafePipe
   ],

@@ -22,7 +22,7 @@ jobs:
         run: cd frontend && npm install
 
       - name: Build Angular App
-        run: npm run build --prod
+        run: cd frontend && npm run build --prod
 
       - name: Deploy to Server
         uses: appleboy/scp-action@v0.1.4

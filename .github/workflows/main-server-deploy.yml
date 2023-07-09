@@ -19,7 +19,7 @@ jobs:
           node-version: 14
 
       - name: Install Dependencies
-        run: npm install
+        run: cd frontend && npm install
 
       - name: Build Angular App
         run: npm run build --prod

@@ -22,15 +22,27 @@ jobs:
         run: cd frontend && npm install
 
       - name: Build Angular App
-        run: cd frontend && npm run build --prod --base-href=/home/ && mv dist/home ../
+        run: |
+          cd frontend
+          npm run build --base-href=/home/
+          tar -czf dist-${{ github.repository }}.tgz dist/home
 
-      - name: Deploy to Server
+      - name: Load to Server
         uses: appleboy/scp-action@v0.1.4
         with:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: ./home
+          source: dist-${{ github.repository }}.tgz
           target: ~/pages
 
-
+      - name: Deploy on Server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd ~/pages
+            tar -xzf dist-${{ github.repository }}.tgz
+            rm dist-${{ github.repository }}.tgz

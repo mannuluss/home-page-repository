@@ -25,7 +25,8 @@ jobs:
         run: |
           cd frontend
           npm run build --base-href=/home/
-          tar -czf dist-${{ github.repository }}.tgz dist/home
+          echo "Comprimiendo archivos..."
+          tar -czf dist-${{ github.sha }}.tgz dist/
 
       - name: Load to Server
         uses: appleboy/scp-action@v0.1.4
@@ -33,7 +34,7 @@ jobs:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: dist-${{ github.repository }}.tgz
+          source: dist-${{ github.sha }}.tgz
           target: ~/pages
 
       - name: Deploy on Server
@@ -44,5 +45,5 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd ~/pages
-            tar -xzf dist-${{ github.repository }}.tgz
-            rm dist-${{ github.repository }}.tgz
+            tar -xzf dist-${{ github.sha }}.tgz --strip-components=1
+            rm dist-${{ github.sha }}.tgz
